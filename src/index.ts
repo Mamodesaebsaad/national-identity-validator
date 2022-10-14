@@ -57,4 +57,3 @@ const CHAR_VALUES = [
 
    export default validateNationalIdentityNumber;
 
-//    console.log(validateNationalIdentityNumber("M2006980102769"))
