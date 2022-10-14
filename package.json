@@ -1,0 +1,20 @@
+{
+  "name": "national-identity-validator",
+  "version": "1.0.0",
+  "description": "Mauritius National Identity Validator",
+  "main": "./lib/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "ts-node ./index.ts",
+    "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
+  },
+  "keywords": [
+    "nodejs",
+    "mauritius",
+    "national",
+    "identity"
+  ],
+  "author": "Mamode Saeb Saad",
+  "license": "ISC"
+}
