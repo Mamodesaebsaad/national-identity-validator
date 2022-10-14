@@ -1,5 +1,5 @@
 {
-  "name": "national-identity-validator",
+  "name": "@mamodesaebsaad/national-identity-validator",
   "version": "1.0.0",
   "description": "Mauritius National Identity Validator",
   "main": "./lib/index.js",
@@ -16,5 +16,8 @@
     "identity"
   ],
   "author": "Mamode Saeb Saad",
+  "repository": {
+    "url": "git://github.com/mamodesaebsaad/national-identity-validator.git"
+  },
   "license": "ISC"
 }
