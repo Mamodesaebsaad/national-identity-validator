@@ -55,5 +55,7 @@ const CHAR_VALUES = [
 
    }
 
+   console.log("testing");
+
    export default validateNationalIdentityNumber;
 
