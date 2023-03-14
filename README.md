@@ -17,7 +17,7 @@ The Operation is as follows:
 
     `validateNationalIdentityNumber(nid: 'string', lastname?: 'string', dob?: 'string');` //return boolean value true or false
 
-    date of birth string data should be in the format `YYYY-MM-DD`
+    date of birth string data should be in the format `YYYY-MM-DD` or `YYYY/MM/DD`
 
     The parameter `lastname` is optional which will validate the last name of the person by comparing the first character of the last name with the first character from the nid.
 
