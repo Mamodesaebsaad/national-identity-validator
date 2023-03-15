@@ -99,7 +99,7 @@ const validateNationalIdentityNumber = (
   }
 
   if (!!nid && !!lastname && !!dob) {
-    if (typeof dob === "string") {
+    if (typeof dob !== 'object') {
       if (dob.includes("/")) {
         validateDate =
           !!(dob.split("/")[0].slice(2, 4) === nid.slice(5, 7)) &&
