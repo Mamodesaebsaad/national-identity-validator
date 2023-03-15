@@ -15,7 +15,7 @@ The Operation is as follows:
 
     `import validateNationalIdentityNumber from 'national-identity-validator';`
 
-    `validateNationalIdentityNumber(nid: 'string', lastname?: 'string', dob?: 'string');` //return boolean value true or false
+    `validateNationalIdentityNumber(nid: 'string', lastname?: 'string', dob?: 'object' | 'string');` //return boolean value true or false
 
     date of birth string data should be in the format `YYYY-MM-DD` or `YYYY/MM/DD`
 

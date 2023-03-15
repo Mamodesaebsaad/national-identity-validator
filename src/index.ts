@@ -54,8 +54,10 @@ const CHAR_VALUES = [
 const validateNationalIdentityNumber = (
   nid: string,
   lastname?: string,
-  dob?: string
+  dob?: Date | string
 ): boolean => {
+  //   const dateOfBirth = new Date('Wed Mar 15 2023 09:56:29 GMT+0400 (Gulf Standard Time)');
+  //   console.log(new Date('Wed Mar 15 2023 09:56:29 GMT+0400 (Gulf Standard Time)').toISOString().slice(0, 10))
   const Nid_Array: number[] = [];
   const split_string: string[] = nid.split("");
 
@@ -96,22 +98,32 @@ const validateNationalIdentityNumber = (
     validSurname = !!(lastname.slice(0, 1) === nid.slice(0, 1));
   }
 
-
   if (!!nid && !!lastname && !!dob) {
-    if (dob.includes("/")) {
-      validateDate =
-        !!(dob.split("/")[0].slice(2, 4) === nid.slice(5, 7)) &&
-        !!(dob.split("/")[1] === nid.slice(3, 5)) &&
-        !!(dob.split("/")[2] === nid.slice(1, 3));
+    if (typeof dob === "string") {
+      if (dob.includes("/")) {
+        validateDate =
+          !!(dob.split("/")[0].slice(2, 4) === nid.slice(5, 7)) &&
+          !!(dob.split("/")[1] === nid.slice(3, 5)) &&
+          !!(dob.split("/")[2] === nid.slice(1, 3));
 
-      isValidNID = validateNationalIdentity && validSurname && validateDate;
-    }
+        isValidNID = validateNationalIdentity && validSurname && validateDate;
+      }
 
-    if (dob.includes("-")) {
+      if (dob.includes("-")) {
+        validateDate =
+          !!(dob.split("-")[0].slice(2, 4) === nid.slice(5, 7)) &&
+          !!(dob.split("-")[1] === nid.slice(3, 5)) &&
+          !!(dob.split("-")[2] === nid.slice(1, 3));
+
+        isValidNID = validateNationalIdentity && validSurname && validateDate;
+      }
+    } else {
+      // console.log(new Date(dob).toISOString().slice(0, 10));
+      let dateofbirth = new Date(dob).toISOString().slice(0, 10);
       validateDate =
-        !!(dob.split("-")[0].slice(2, 4) === nid.slice(5, 7)) &&
-        !!(dob.split("-")[1] === nid.slice(3, 5)) &&
-        !!(dob.split("-")[2] === nid.slice(1, 3));
+        !!(dateofbirth.split("-")[0].slice(2, 4) === nid.slice(5, 7)) &&
+        !!(dateofbirth.split("-")[1] === nid.slice(3, 5)) &&
+        !!(dateofbirth.split("-")[2] === nid.slice(1, 3));
 
       isValidNID = validateNationalIdentity && validSurname && validateDate;
     }
