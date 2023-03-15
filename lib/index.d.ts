@@ -8,5 +8,5 @@
  * @param {string} [dob] - date of birth in format: dd/mm/yyyy
  * @returns It's returning a boolean value.
  */
-declare const validateNationalIdentityNumber: (nid: string, lastname?: string, dob?: string) => boolean;
+declare const validateNationalIdentityNumber: (nid: string, lastname?: string, dob?: Date | string) => boolean;
 export default validateNationalIdentityNumber;
