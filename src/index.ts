@@ -41,6 +41,15 @@ const CHAR_VALUES = [
   "Z",
 ];
 
+
+interface Validator {
+  isValid :         boolean,
+  isNidValid:       boolean,
+  isSurnameValid:   boolean,
+  isValidDob:       boolean,
+  age:               number
+
+}
 /**
  * It's checking if the national identity number is valid by checking if the sum of the national
  * identity number is divisible by 17, if the first character of the lastname is equal to the first
@@ -55,7 +64,7 @@ const validateNationalIdentityNumber = (
   nid: string,
   lastname?: string,
   dob?: Date | string
-): boolean => {
+): Validator => {
   //   const dateOfBirth = new Date('Wed Mar 15 2023 09:56:29 GMT+0400 (Gulf Standard Time)');
   //   console.log(new Date('Wed Mar 15 2023 09:56:29 GMT+0400 (Gulf Standard Time)').toISOString().slice(0, 10))
   const Nid_Array: number[] = [];
@@ -114,6 +123,20 @@ const validateNationalIdentityNumber = (
     );
   };
 
+
+  const getAge = (): number => {
+    let rawDate: string = nid.slice(1,7);
+    let year: string  = rawDate.slice(4);
+    let month: string = rawDate.slice(2,4);
+    let date: string = rawDate.slice(0,2)
+    let userDate: Date = new Date(year + "-" + month + "-" + date);
+
+    let rawAge: number =  new Date().getTime() - userDate.getTime();
+    let age: number = new Date(rawAge).getUTCFullYear() - 1970
+        
+    return age;
+}
+
  /* It's checking if the date of birth is a string or a date object and then it's checking if the date
  of birth is in the format of dd/mm/yyyy or dd-mm-yyyy. */
   if (dob) {
@@ -132,7 +155,15 @@ const validateNationalIdentityNumber = (
     }
   }
 
-  return validateNationalIdentity && validSurname && validateDate;
+  // return validateNationalIdentity && validSurname && validateDate;
+
+  return {
+    isValid: validateNationalIdentity && validSurname && validateDate,
+    isNidValid: validateNationalIdentity,
+    isSurnameValid: validSurname,
+    isValidDob: validateDate,
+    age: getAge()
+}
 };
 
 export default validateNationalIdentityNumber;

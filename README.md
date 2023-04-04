@@ -15,7 +15,7 @@ The Operation is as follows:
 
     `import validateNationalIdentityNumber from 'national-identity-validator';`
 
-    `validateNationalIdentityNumber(nid: 'string', lastname?: 'string', dob?: 'object' | 'string');` //return boolean value true or false
+    `validateNationalIdentityNumber(nid: 'string', lastname?: 'string', dob?: 'object' | 'string');` //return an object
 
     date of birth string data should be in the format `YYYY-MM-DD` or `YYYY/MM/DD`
 
@@ -23,6 +23,17 @@ The Operation is as follows:
 
     The parameter `dob` is optional which will validate the date of birth of the person by comparing the dob with the date of birth of the person from the nid.
 
+    The object return is as follows:
+
+    ```
+        {
+            isValid :         boolean,
+            isNidValid:       boolean,
+            isSurnameValid:   boolean,
+            isValidDob:       boolean,
+            age:               number
+        }
+    ```
 ### Issues about type
 
 - Simply add type in your package.json file

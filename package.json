@@ -1,6 +1,6 @@
 {
   "name": "national-identity-validator",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "Mauritius National Identity Validator",
   "main": "./lib/index.js",
   "type": "module",

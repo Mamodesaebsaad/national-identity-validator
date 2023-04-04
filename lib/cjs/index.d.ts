@@ -1,3 +1,10 @@
+interface Validator {
+    isValid: boolean;
+    isNidValid: boolean;
+    isSurnameValid: boolean;
+    isValidDob: boolean;
+    age: number;
+}
 /**
  * It's checking if the national identity number is valid by checking if the sum of the national
  * identity number is divisible by 17, if the first character of the lastname is equal to the first
@@ -8,5 +15,5 @@
  * @param {string} [dob] - date of birth in format: dd/mm/yyyy
  * @returns It's returning a boolean value.
  */
-declare const validateNationalIdentityNumber: (nid: string, lastname?: string, dob?: Date | string) => boolean;
+declare const validateNationalIdentityNumber: (nid: string, lastname?: string, dob?: Date | string) => Validator;
 export default validateNationalIdentityNumber;
