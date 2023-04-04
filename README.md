@@ -34,6 +34,19 @@ The Operation is as follows:
             age:               number
         }
     ```
+
+### How to use
+
+- To use the validateNationalIdentityNumber package
+
+```
+     import validateNationalIdentityNumber from 'national-identity-validator';
+
+     validateNationalIdentityNumber("S0808739500", "Sample", "YYYY-MM-DD"); //return an object
+
+
+```
+
 ### Issues about type
 
 - Simply add type in your package.json file
